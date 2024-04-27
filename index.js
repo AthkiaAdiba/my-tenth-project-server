@@ -31,24 +31,32 @@ async function run() {
 
     const database = client.db("touristsSpotDB");
     const spotsCollection = database.collection("spots");
+    const countriesCollection = database.collection("countries");
 
-    
-    app.get('/addSpot', async(req, res) => {
+
+    app.get('/addSpot', async (req, res) => {
       const cursor = spotsCollection.find();
       const result = await cursor.toArray();
       res.send(result)
     })
 
-    app.get('/addSpot/:id', async(req, res) => {
+    app.get('/addSpot/:id', async (req, res) => {
       const id = req.params.id;
-      console.log(id)
-      const query = {_id: new ObjectId(id)}
+      // console.log(id)
+      const query = { _id: new ObjectId(id) }
       const result = await spotsCollection.findOne(query)
       res.send(result);
-  });
+    });
 
 
-    app.post('/addSpot', async(req, res) => {
+    app.get('/addSpot-email/:email', async (req, res) => {
+      const result = await spotsCollection.find({userEmail: req.params.email}).toArray();
+      // console.log(result)
+      res.send(result);
+    });
+
+
+    app.post('/addSpot', async (req, res) => {
       const addSpot = req.body;
       console.log(addSpot)
       const result = await spotsCollection.insertOne(addSpot);

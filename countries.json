@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "image": "france.jpg",
+      "countryName": "France",
+      "shortDescription": "Renowned for its cuisine, art, and culture, France offers diverse landscapes and rich history."
+    },
+    {
+      "id": 2,
+      "image": "italy.jpg",
+      "countryName": "Italy",
+      "shortDescription": "Famous for its food, architecture, and history, Italy boasts stunning coastlines and iconic landmarks."
+    },
+    {
+      "id": 3,
+      "image": "spain.jpg",
+      "countryName": "Spain",
+      "shortDescription": "Vibrant culture, flamenco music, and delicious cuisine characterize Spain, with diverse landscapes and historic cities."
+    },
+    {
+      "id": 4,
+      "image": "england.jpg",
+      "countryName": "England",
+      "shortDescription": "Known for its royalty, literature, and landmarks like Big Ben and the Tower of London, England offers rich history."
+    },
+    {
+      "id": 5,
+      "image": "netherlands.jpg",
+      "countryName": "Netherlands",
+      "shortDescription": "Famous for its tulips, windmills, and canals, the Netherlands is a picturesque country with a rich cultural heritage."
+    },
+    {
+      "id": 6,
+      "image": "switzerland.jpg",
+      "countryName": "Switzerland",
+      "shortDescription": "Known for its alpine landscapes, Swiss watches, and chocolate, Switzerland is a haven for outdoor enthusiasts."
+    }
+  ]
+  
