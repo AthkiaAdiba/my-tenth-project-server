@@ -76,12 +76,41 @@ async function run() {
     });
 
 
+    // update
+    app.put('/updateSpot/:id', async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const sendSpot = req.body;
+      const updatedSpot = {
+        $set: {
+          countryName: sendSpot.countryName,
+          spotName: sendSpot.spotName,
+          location: sendSpot.location,
+          cost: sendSpot.cost,
+          season: sendSpot.season,
+          photo: sendSpot.photo,
+          travelTime: sendSpot.travelTime,
+          visitors: sendSpot.visitors,
+          description: sendSpot.description
+        }
+      }
+
+      const result = await spotsCollection.updateOne(filter, updatedSpot, options);
+      res.send(result);
+    });
+
+
+
     app.delete('/addSpot/:id', async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) }
       const result = await spotsCollection.deleteOne(query)
       res.send(result);
     });
+
+
+    
 
 
     // Send a ping to confirm a successful connection
