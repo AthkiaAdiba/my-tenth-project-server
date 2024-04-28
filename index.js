@@ -50,7 +50,7 @@ async function run() {
 
 
     app.get('/addSpot-email/:email', async (req, res) => {
-      const result = await spotsCollection.find({userEmail: req.params.email}).toArray();
+      const result = await spotsCollection.find({ userEmail: req.params.email }).toArray();
       // console.log(result)
       res.send(result);
     });
@@ -61,7 +61,15 @@ async function run() {
       console.log(addSpot)
       const result = await spotsCollection.insertOne(addSpot);
       res.send(result);
-    })
+    });
+
+
+    app.delete('/addSpot/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) }
+      const result = await spotsCollection.deleteOne(query)
+      res.send(result);
+    });
 
 
     // Send a ping to confirm a successful connection
