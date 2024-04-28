@@ -40,7 +40,19 @@ async function run() {
       res.send(result)
     })
 
+
+    // get one data for showing details
     app.get('/addSpot/:id', async (req, res) => {
+      const id = req.params.id;
+      // console.log(id)
+      const query = { _id: new ObjectId(id) }
+      const result = await spotsCollection.findOne(query)
+      res.send(result);
+    });
+
+
+    // get one data for update
+    app.get('/update/:id', async (req, res) => {
       const id = req.params.id;
       // console.log(id)
       const query = { _id: new ObjectId(id) }
