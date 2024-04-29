@@ -32,6 +32,7 @@ async function run() {
     const database = client.db("touristsSpotDB");
     const spotsCollection = database.collection("spots");
     const countriesCollection = database.collection("countries");
+    const guidesCollection = database.collection("guides");
 
 
     app.get('/addSpot', async (req, res) => {
@@ -123,6 +124,15 @@ async function run() {
       console.log(result)
       res.send(result);
     });
+
+
+
+    // guides related
+    app.get('/guides', async (req, res) => {
+      const cursor = guidesCollection.find();
+      const result = await cursor.toArray();
+      res.send(result)
+    })
 
 
     // Send a ping to confirm a successful connection
