@@ -110,7 +110,19 @@ async function run() {
     });
 
 
-    
+    // countries related
+    app.get('/countries', async (req, res) => {
+      const cursor = countriesCollection.find();
+      const result = await cursor.toArray();
+      res.send(result)
+    });
+
+    // get data by country name
+    app.get('/countryWiseCards/:countryName', async (req, res) => {
+      const result = await spotsCollection.find({ countryName: req.params.countryName }).toArray();
+      console.log(result)
+      res.send(result);
+    });
 
 
     // Send a ping to confirm a successful connection
